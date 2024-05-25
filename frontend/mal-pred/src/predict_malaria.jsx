@@ -1,13 +1,11 @@
 import "./App.css";
 import Navbar from "./navbar";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
-function Predict() {
+function PredictMalaria() {
   const [result, setResult] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +26,7 @@ function Predict() {
       if(count>0){
         setError("Please fill all the inputs")
       } else{
-        const response = await axios.post("http://127.0.0.1:5000/predict", data);
+        const response = await axios.post("http://127.0.0.1:9000/predict-malaria", data);
         console.log(response);
         setResult(response.data.message);
         setError("");
@@ -178,7 +176,7 @@ function Predict() {
         <Navbar />
         <div className="flex">
           <h1 className="text-3xl my-auto mx-auto text-center text-blue-600 font-bold">
-            Check Status
+            Check Your Maleria Status
           </h1>
         </div>
 
@@ -321,4 +319,4 @@ function Predict() {
   );
 }
 
-export default Predict;
+export default PredictMalaria;

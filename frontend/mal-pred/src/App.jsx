@@ -2,7 +2,8 @@ import "./App.css";
 import Navbar from "./navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./home";
-import Predict from "./predict";
+import PredictMalaria from "./predict_malaria";
+import PredictAnemia from "./predict_anemia";
 function App() {
   return (
     <>
@@ -10,7 +11,8 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Layout />}> */}
           <Route index element={<Home />} />
-          <Route path="predict" element={<Predict />} />
+          <Route path="predict_malaria" element={<PredictMalaria />} />
+          <Route path="predict_anemia" element={<PredictAnemia />} />
         {/* </Route> */}
       </Routes>
     </BrowserRouter>
